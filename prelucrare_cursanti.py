@@ -1,3 +1,9 @@
+#TODO:
+# 1. Numele fisierelor in care sunt salvate datele trebuie sa aiba formatul: Lista_cursanti_AN_LUNA_ZI_ORA_MINUTE.txt/csv
+# 2. Stergerea inregistrarilor din cadrul listei de cursanti (adaugarea de index pentru fiecare inregistrare si stergere pe baza de index)
+# 2'. Stergerea inregistrarilor pe baza de CNP
+# 3. Incarcarea datelor dintr-un fisier de cursanti in cadrul listei cu eliminarea duplicatelor.
+
 def prelucrare_date_citite(data):
     if len(data) < 3:
         print("Datele introduse pentru cursant sunt incomplete")
