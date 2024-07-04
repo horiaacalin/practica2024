@@ -40,6 +40,18 @@ def validare_cnp(cnp_introdus):
         return False
     return True
 
+def salveaza_date(format_fisier):
+    global lista_cursanti
+    #TODO: Tratarea cazului pentru format_fisier == csv
+    if format_fisier == "txt":
+        with open("lista_cursanti.txt", mode="w") as my_file:
+            my_file.write("Nume \t Prenume \t CNP \n")
+        with open("lista_cursanti.txt", mode="a") as my_file:
+            for cursant in lista_cursanti:
+                my_file.write(cursant['nume'] + "\t" + cursant['prenume'] + "\t" + cursant['cnp'] + "\n")
+        print("Fisierul lista_cursanti.txt a fost salvat cu success.")
+
+
 
 if __name__ == "__main__":
     lista_cursanti = []
@@ -49,6 +61,10 @@ if __name__ == "__main__":
         if new_line == "EXIT":
             print("Programul se inchide")
             break
+        if new_line == "SAVE":
+            format_fisier = input("In ce format doriti salvarea datelor? txt/csv?").lower()
+            salveaza_date(format_fisier)
+            continue
         date_cursant = new_line.split()
         rezultat = prelucrare_date_citite(date_cursant)
         if not rezultat:
